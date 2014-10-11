@@ -1,0 +1,44 @@
+#include "stdio.h"
+#include "stdio.h"
+#include "string.h"
+#include "stdlib.h"
+
+int main ()
+{
+    FILE         *fp = NULL;
+    int          c   = 0;    
+    unsigned int ctA = 0;  
+    unsigned int ctG = 0;  
+    unsigned int ctC = 0;  
+    unsigned int ctT = 0;  
+
+    fp = fopen("rosalind_dna.txt","r");
+    if (fp == NULL) {
+        printf("\nError opening file\n");
+        return 0;
+    }
+
+    while ((c = fgetc(fp)) != EOF) {
+           if (c == 'A') {
+               ctA++;
+               printf("%c",c);
+           }            
+           if (c == 'G') {
+               ctG++;
+               printf("\t\t%c",c);
+           }            
+           if (c == 'C') {
+               ctC++;
+               printf("\t%c",c);
+           }            
+           if (c == 'T') {
+               ctT++;
+               printf("\t\t\t%c",c);
+           }            
+           printf("\n");
+    }
+
+    printf("\n%u %u %u %u\n",ctA, ctC, ctG, ctT);
+ 
+    return 0;
+}
