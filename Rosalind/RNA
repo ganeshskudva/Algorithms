@@ -1,0 +1,34 @@
+#include "stdio.h"
+#include "stdio.h"
+#include "string.h"
+#include "stdlib.h"
+
+int main ()
+{
+    FILE         *fp  = NULL;
+    int          c    = 0;    
+    int          i    = 0;    
+    char         *line = (char *)malloc(sizeof(char));
+    size_t       len  = 0;
+    size_t       read = 0;
+    
+
+    fp = fopen("rosalind_rna.txt","r");
+    if (fp == NULL) {
+        printf("\nError opening file\n");
+        return 0;
+    }
+
+    read = getline(&line, &len, fp);
+    line[read] = '\0';
+
+    for (i=0; i<read; i++) {
+         if (line[i] == 'T') {
+             line[i] = 'U';
+         }
+    }
+    
+    printf("\n%s \n",line);
+ 
+    return 0;
+}
