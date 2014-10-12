@@ -1,0 +1,84 @@
+#include "stdio.h"
+#include "stdlib.h"
+
+int power(int after)
+{
+    int i = 0;
+    int num = 1;
+
+    for (i=0; i < after; i++) {
+         num = num * 10;
+    }
+     
+    return num;
+}
+char *ftoa(float val, int after)
+{
+    char *str = NULL;
+    int  n  = (int) val; 
+    int  cnt    = 0;
+    int  i    = 0;
+    int digit = 0;
+    float temp = val*power(after);
+
+    while (n) {
+           n = n/10;
+           cnt++;
+    } 
+
+    str = (char *)malloc((cnt + after + 2)* sizeof(char));
+    if (!str) {
+        printf("\nMalloc error\n");
+        exit(0);
+    }
+
+    n = (int) temp;
+    i = cnt + after + 2 - 1;
+    str[i] = '\0';
+    i--;
+    str[i - after ] = '.';
+    while (n) {
+           digit = n%10;
+           n = n/10;
+           after--;
+           switch (digit) {
+              case 0: str[i] = '0';
+                      break;
+              case 1: str[i] = '1';
+                      break;
+              case 2: str[i] = '2';
+                      break;
+              case 3: str[i] = '3';
+                      break;
+              case 4: str[i] = '4';
+                      break;
+              case 5: str[i] = '5';
+                      break;
+              case 6: str[i] = '6';
+                      break;
+              case 7: str[i] = '7';
+                      break;
+              case 8: str[i] = '8';
+                      break;
+              case 9: str[i] = '9';
+                      break;
+              default: break;
+           }       
+           if (!after) {
+               i--;
+           }
+           i--;
+//           after--;
+    }
+    return str;
+}
+
+int main ()
+{
+    float val  = 0;
+    int   after = 0;
+ 
+    scanf("%f %d",&val, &after);
+    printf("\n Float:%f Str:%s \n",val,ftoa(val, after));
+    return 0;
+}
