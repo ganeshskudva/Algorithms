@@ -1,0 +1,58 @@
+#include "stdio.h"
+#include "stdlib.h"
+#include "string.h"
+
+void pat_search(char *txt, char *pat, int txt_len, int pat_len)
+{
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    int beg = 0;
+    int end = 0;
+    int found = 0;
+
+    if (!txt_len) {
+        printf("\nEmpty Txt to search\n");
+        exit(0);
+    } else if (pat_len > txt_len) {
+        printf("\nPattern longer than Txt\n");
+        exit(0);
+    }
+
+    for (i = 0; i < txt_len && j < pat_len; i++) {
+         if (txt[i] == pat[j]) {
+             beg = i;
+             k = i;
+             while (pat[j]) {
+                    if (txt[k] != pat[j]) {
+                        j = 0;
+                        break;
+                    }  
+                    k++;
+                    j++;      
+             }
+             if ((k - beg) == pat_len) {
+                 end = k;
+                 found = 1;
+                 break;
+             }
+         }
+    }
+
+    if (found) {
+        printf("\nPat found btw %d & %d\n",beg, end);    
+    } else {
+        printf("\nPat not found \n");    
+    }
+   
+}
+
+int main()
+{
+    char txt[] = "Sunnyvale Public Library";
+    char pat[] = "Library";
+
+    printf("\ntxt:%s\n",txt);
+    printf("\npat:%s\n",pat);
+    pat_search(txt, pat, strlen(txt), strlen(pat));
+}
