@@ -1,0 +1,72 @@
+#include "stdio.h"
+#include "stdlib.h"
+#include "string.h"
+
+#define ARR_SIZE 256
+#define STR_SIZE 256
+int arr[ARR_SIZE] ;
+
+void init_arr()
+{
+    int i = 0;
+
+    for (i = 0; i < ARR_SIZE; i++) {
+         arr[i] = 0;
+    }
+}
+
+int move(char *str, int pos, int len)
+{
+    int i = pos;
+    int j = 0;
+    int cnt = 0;
+
+    if (pos == len) {
+        str[pos] = '\0';
+        return;
+    }
+ 
+    for (j = pos; j < len; j++) {
+         if (str[i] != str[j]) {
+             break;
+         }
+         cnt++;
+    }
+
+    for (i = pos; i < len && j < len; i++, j++) {
+         str[i] = str[j];
+    }
+    
+    str[len - cnt] = '\0';
+    return (strlen(str));
+}
+
+void rem_dup(char *str, int length)
+{
+    int i = 0;
+    int j = 0;
+    int len = length;
+
+    init_arr();
+    while (*(str + i)) {
+           if (arr[*(str + i)]) {
+               len = move(str, i, len);
+           } else {
+               arr[*(str + i)] = 1;
+               i++;
+           }
+   
+    }
+}
+
+int main()
+{
+    char str[STR_SIZE] ;//= "aaaaabbbaaadddaaaeeeeffff";
+    
+    scanf("%s",str);
+    printf("\nBefore str:%s len:%d\n",str, strlen(str));
+    rem_dup(str, strlen(str));
+    printf("\nAfter str:%s len:%d\n",str, strlen(str));
+
+    return 0;
+}
