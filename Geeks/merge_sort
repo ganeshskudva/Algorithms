@@ -1,0 +1,109 @@
+#include "stdio.h"
+#include "stdlib.h"
+#include "time.h"
+
+#define ARR_SIZE 15 
+
+void merge(int *arr, int low, int mid, int high)
+{
+    int left_len = mid - low;
+    int rght_len = high - mid;
+    int *left = NULL;
+    int *rght = NULL;
+    int i     = 0;
+    int l     = 0;
+    int r     = 0;
+
+    left = (int *)calloc(left_len, sizeof(int));
+    if (!left) {
+        printf("\nMalloc error\n");
+        exit(0);
+    }
+    
+    rght = (int *)calloc(rght_len, sizeof(int));
+    if (!rght) {
+        printf("\nMalloc error\n");
+        exit(0);
+    }
+    
+    for (i = low; i < mid; i++, l++) {
+         left[l] = arr[i];
+    }
+    for (i = mid; i < high; i++, r++) {
+         rght[r] = arr[i];
+    }
+ 
+    for (i = low, r = 0, l = 0; l < left_len && r < rght_len; i++) {
+         if (left[l] > rght[r]) {
+             arr[i] = rght[r];
+             r++;
+         } else if (left[l] < rght[r]){
+             arr[i] = left[l];
+             l++;
+         } else if (left[l] == rght[r]) {
+             arr[i] = left[l];
+             l++;
+             r++;
+         }
+    }
+
+    while (l < left_len) {
+           arr[i] = left[l];
+           i++;
+           l++;
+    }
+    
+    while (r < rght_len) {
+           arr[i] = rght[r];
+           i++;
+           r++;
+    }
+}
+
+void msort_internal(int *arr, int low, int high)
+{
+    int mid = (low+high)/2;
+    
+    if (high - low <= 1) {
+        return;
+    }
+
+    msort_internal(arr, low, mid);
+    msort_internal(arr, mid, high);
+    merge(arr,low, mid, high);
+}
+
+
+void merge_sort(int *arr, int size)
+{
+    msort_internal(arr,0, size);
+}
+
+void disp(int *arr, int size)
+{
+    int i =0;
+
+    for (i=0; i<size; i++) {
+         printf(" %d ",arr[i]);
+    }
+}
+
+int main ()
+{
+    int arr[ARR_SIZE]; 
+    int i     = 0;
+    int size = sizeof(arr)/sizeof(arr[0]);
+    srand(100);
+
+    for (i=0; i<size;i++) {
+         arr[i] = rand()%100;
+    }
+
+    printf("\nBefore Sort Size:%d \n", size);
+    disp (arr,size);
+    merge_sort(arr, size);
+    size = sizeof(arr)/sizeof(arr[0]);
+    printf("\nAfter Sort Size:%d\n",size);
+    disp (arr,size);
+    return 0;
+}
