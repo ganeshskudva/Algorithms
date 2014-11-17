@@ -1,0 +1,37 @@
+import sys
+import re 
+
+def is_div (num, div):
+    if (num % div):
+        return False
+
+    return True
+
+def disp (line):
+    if(len(line) <= 0):
+       return
+    chk = line.split()
+    X = int(chk[0])
+    Y = int(chk[1])
+    N = int(chk[2])
+    for i in range (1, N):
+        if (is_div(i, X) and is_div(i, Y)):
+            print("FB"), 
+        elif (is_div(i, X) and not(is_div(i, Y))):
+            print("F"),
+        elif (not(is_div(i, X)) and is_div(i, Y)):
+            print("B"),
+        else :
+            print(i),
+
+test_case = open(sys.argv[1], 'r')
+
+line = test_case.readline();
+while len(line) > 0:
+    disp(line)
+    print()
+    line = test_case.readline();
+
+test_case.close();
+
+disp(line)
