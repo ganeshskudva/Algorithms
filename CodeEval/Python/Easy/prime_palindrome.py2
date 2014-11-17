@@ -1,0 +1,32 @@
+import sys
+
+def is_prime(num):
+             i = 2
+             while (i <= num/2):
+                    if ((num % i) == 0):
+                        return False
+                    i = i + 1
+ 
+             return True
+
+def is_palindrome(num):
+                  reverse_num = reverse(num)
+                  if ((num - reverse_num) != 0):
+                      return False
+                  
+                  return True
+
+def reverse(num):
+            temp = 0
+            while (num):
+                   temp = (temp * 10) + (num % 10)
+                   num = num / 10
+
+            return temp
+
+i = 999
+while (i):
+       if (is_prime(i) and is_palindrome(i)):
+           print i
+           break
+       i = i - 2
