@@ -1,0 +1,10 @@
+import sys 
+
+filename = open(sys.argv[1], 'r')
+line = filename.readline()
+
+while (len(line)):
+       print line.lower()
+       line = filename.readline()
+
+filename.close()
