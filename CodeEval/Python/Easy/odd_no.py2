@@ -1,0 +1,6 @@
+import sys
+
+odd = 1
+while (odd <= 99):
+       print odd
+       odd = odd + 2
