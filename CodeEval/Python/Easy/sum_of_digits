@@ -1,0 +1,16 @@
+import sys
+
+def digit_sum(num):
+              count = 0
+              while (num):
+                     count = count + (num%10)
+                     num   = num/10
+              print count
+
+filename = open(sys.argv[1], 'r')
+line = filename.readline()
+while (len(line)):
+       digit_sum(int(line))
+       line = filename.readline()
+       
+       
