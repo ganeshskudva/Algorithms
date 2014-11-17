@@ -1,0 +1,27 @@
+import sys
+
+def reverse(num):
+            temp = str(num)
+            return int(temp[::-1])
+
+def is_palin(num):
+             num = str(num)
+             return num == num[::-1]
+             
+filename = open(sys.argv[1], 'r')
+line = filename.readline()
+
+summ  = 0
+count = 0
+number = int(line)
+while (len(line)):
+       summ = number + reverse(number)
+       count = count + 1
+       if (is_palin(summ)):
+           print count," ",summ
+           line = filename.readline()
+           if (len(line)):
+               number = int(line)
+       number = summ
+           
+          
