@@ -1,0 +1,13 @@
+import sys
+
+summ = 0
+filename = open(sys.argv[1], 'r')
+
+line = filename.readline()
+
+while (len(line) != 0):
+       summ = summ + int(line)
+       line = filename.readline()
+
+print summ
+       
