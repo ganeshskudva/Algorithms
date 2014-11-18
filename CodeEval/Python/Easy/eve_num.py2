@@ -1,0 +1,11 @@
+import sys
+
+filename = open(sys.argv[1], 'r')
+line = filename.readline()
+
+while (len(line)):
+       if (int(line)%2):
+           print 0
+       else: 
+           print 1
+       line = filename.readline()
