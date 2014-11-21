@@ -1,0 +1,9 @@
+import sys
+
+filename = open(sys.argv[1], 'r')
+max_names = int(filename.readline())
+contents = [x.strip('\n') for x in filename.readlines()]
+new_list = sorted(contents, key = len, reverse = True)
+for i in range(0, max_names):
+               print new_list.pop(0)       
+        
