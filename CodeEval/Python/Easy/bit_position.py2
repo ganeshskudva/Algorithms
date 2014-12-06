@@ -1,0 +1,16 @@
+import sys
+
+def check_bits(num, pos_a, pos_b):
+               if ((num & (1 << (pos_a - 1))) and (num & (1 << (pos_b - 1)))):
+                   print "true" 
+               elif (not(num & (1 << (pos_a - 1))) and not(num & (1 << (pos_b - 1)))):
+                   print "true" 
+               else:
+                   print "false" 
+
+with open(sys.argv[1], 'r') as input:
+    test_cases = input.read().strip().splitlines()
+
+for test in test_cases:
+    num, pos_a, pos_b = (int(i) for i in test.split(',')) 
+    check_bits(num, pos_a, pos_b)
