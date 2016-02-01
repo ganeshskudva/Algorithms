@@ -1,0 +1,54 @@
+package com.gkudva;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class Solution {
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static int[][] adjM;
+    static int N,M;
+
+    public static int[] splitString(String input){
+        String[] strArray = input.split(" ");
+        int l = strArray.length;
+        int[] intArray = new int[l];
+        for (int i = 0; i<l;i++) {
+            intArray[i] = Integer.parseInt(strArray[i]);
+        }
+        return intArray;
+    }
+
+    public static int calcXOR(int[] arr)
+    {
+        int xor = 0;
+
+        for (int i = 0; i < arr.length; i++)
+        {
+            for (int j = i; j < arr.length; j++)
+            {
+                for (int k = i; k <= j; k++)
+                {
+                    xor = xor ^ arr[k];
+                }
+            }
+        }
+        return xor;
+    }
+
+    public static void main(String[] args) throws IOException {
+	// write your code here
+        StringBuilder output = new StringBuilder();
+        int T = Integer.parseInt(br.readLine());
+        ArrayList<Integer>Num = new ArrayList<Integer>();
+
+        for (int i = 0; i < T; i++)
+        {
+            int N = Integer.parseInt(br.readLine());
+            int [] arr = new int[N];
+            arr = splitString(br.readLine());
+            System.out.println(calcXOR(arr));
+        }
+    }
+}
