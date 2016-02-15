@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 
 typedef long double ld;
-
 using namespace std;
 
 int main ()
