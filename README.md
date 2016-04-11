@@ -1,3 +1,3 @@
 Algos
 =====
-Myalgorithm solutions from various programming challenges
+My algorithm solutions from various programming challenges
