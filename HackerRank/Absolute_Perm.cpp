@@ -1,3 +1,6 @@
+/*
+* https://www.hackerrank.com/contests/may-world-codesprint/challenges/absolute-permutation
+*/
 #include <cmath>
 #include <cstdio>
 #include <vector>
