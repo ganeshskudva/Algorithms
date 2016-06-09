@@ -1,6 +1,7 @@
 /*
 * AUTHOR: Ganesh S Kudva
 * https://www.hackerearth.com/problem/algorithm/palindrome-check-2-1/
+*
 */
 
 #include <bits/stdc++.h>
