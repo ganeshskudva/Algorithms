@@ -1,9 +1,17 @@
 /*
 * AUTHOR: Ganesh S Kudva
-* https://www.hackerrank.com/contests/101hack36/challenges/reduced-string
 */
 
-#include <bits/stdc++.h>
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+#include <vector>
+#include <set>
+#include <map>
+#include <stack>
 
 typedef long long int ull;
 
@@ -32,9 +40,9 @@ using namespace std;
 
 int main()
 {
-	ull t = 0,i,j;
-	string str, out;
-	stack<char> orig, final;
+	ull t = 0,i,j, size;
+	string str, res;
+	stack<char> temp;
 	char c;
 #if DEBUG 
 	srand((unsigned)time(0));
@@ -44,43 +52,43 @@ int main()
 	cin >> str;
 #endif 
 
-	FORN(i, str.size())
+	size = str.size();
+	FORN(i, size)
 	{
-		orig.push(str[i]);
-	}
-
-	while (!orig.empty())
-	{
-		c = orig.top();
-		orig.pop();
-		if (final.empty())
+		if (i && !temp.empty())
 		{
-			final.push(c);
-		}
-		else
-		{
-			if (c == final.top())
+			c = temp.top();
+			if (c == str[i])
 			{
-				final.pop();
+				temp.pop();
 			}
 			else
 			{
-				final.push(c);
+				temp.push(str[i]);
 			}
+		}
+		else
+		{
+			temp.push(str[i]);
 		}
 	}
 
-
-	if (final.empty())
+	if (temp.size() == 0)
 	{
-		cout<< "Empty String"<<endl;
+		cout << "Empty String" << endl;
 	}
 	else
 	{
-		while(!final.empty())
+		while (!temp.empty())
 		{
-			cout << final.top();
-			final.pop();
+			c = temp.top();
+			res.push_back(c);
+			temp.pop();
+		}
+
+		for(std::string::reverse_iterator rit = res.rbegin(); rit != res.rend(); ++rit)
+		{
+			cout << *rit;
 		}
 		cout << endl;
 	}
