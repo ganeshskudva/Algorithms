@@ -1,5 +1,6 @@
 /*
 * AUTHOR: Ganesh S Kudva
+* https://www.hackerrank.com/contests/w22/challenges/polygon-making
 */
 
 #include <cmath>
