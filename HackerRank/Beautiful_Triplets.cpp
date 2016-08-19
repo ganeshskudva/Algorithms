@@ -1,3 +1,8 @@
+/*
+* AUTHOR: Ganesh S Kudva
+* https://www.hackerrank.com/challenges/beautiful-triplets
+*/
+
 #include <cmath>
 #include <cstdio>
 #include <vector>
@@ -32,50 +37,44 @@ typedef vector<int> VI;
 using namespace std;
 
 #define DEBUG 0
+#define CLOCK 0
 
 int main()
 {
-	ull diff,n = 0, currDiff;
-	ull i, j, k, cnt;
-	set<ull> mySet;
+#if CLOCK
+	clock_t tStart = clock();
+#endif
+	ull t = 0,i,j, n, d, val, cnt, val2;
+	set<ull> contains;
 #if DEBUG 
 	srand((unsigned)time(0));
 	t = (rand()%10)+1; 
 	cout <<t<<endl;
 #else 
-	cin >> n>>diff;
+	cin >> n >> d;
 #endif 
-
-	ull arr[n];
-	MEM(arr, 0, n, ull);
 
 	FORN(i, n)
 	{
-		cin >> arr[i];
-		mySet.insert(arr[i]);
+		cin >> val;
+		contains.insert(val);
 	}
 
 	cnt = 0;
-	currDiff = 0;
-	for (i = 0; i < (n - 2); i++)
+	for(set<ull>::iterator it = contains.begin(); it != contains.end(); ++it)
 	{
-		for (j = (n - 1); j >= 2 ; j--)
+		val = *it + d;
+		val2 = *it + (2*d);
+
+		if ((contains.count(val) != 0) && (contains.count(val2) != 0))
 		{
-			if ((arr[j] - diff) != (arr[i] + diff))
-			{
-				continue;
-			}
-			else
-			{
-				currDiff = (arr[j] + arr[i])/2;
-				if(mySet.count(currDiff) != 0)
-				{
-					cnt++;
-				}
-			}
+			cnt++;
 		}
 	}
-	cout<<cnt<<endl;
+	cout << cnt << endl;
 
+#if CLOCK
+	printf("Time taken: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+#endif
 	return 0;
 }
