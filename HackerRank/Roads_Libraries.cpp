@@ -1,5 +1,6 @@
 /*
 * AUTHOR: Ganesh S Kudva
+* https://www.hackerrank.com/challenges/torque-and-development
 */
 
 #include <bits/stdc++.h>
