@@ -1,3 +1,4 @@
+#https://www.hackerrank.com/challenges/flipping-the-matrix
 for _ in range(int(input().strip())):
     n = int(input().strip()) 
     n2 = 2 * n
