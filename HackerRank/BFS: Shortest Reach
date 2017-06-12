@@ -3,11 +3,14 @@
 * https://www.hackerrank.com/challenges/bfsshortreach/editorial
 */
 
+#include <bits/stdc++.h>
+
 #define pb push_back
+
 
 using namespace std;
 
-vector<'int'>adj[1009];
+vector<int>adj[1009];
 
 int main() 
 
