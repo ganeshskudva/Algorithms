@@ -1,3 +1,8 @@
+/*
+* AUTHOR: Ganesh S Kudva
+* https://www.hackerrank.com/challenges/ashton-and-string/problem
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long LL;
