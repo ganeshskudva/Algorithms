@@ -1,3 +1,8 @@
+/*
+* AUTHOR: Ganesh S Kudva
+* https://www.codechef.com/problems/CHBLLS
+*/
+
 #include <iostream>
 #include <stdio.h>
 #include <vector>
