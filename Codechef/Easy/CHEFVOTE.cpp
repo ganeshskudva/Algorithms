@@ -1,3 +1,9 @@
+/*
+* AUTHOR: Ganesh S Kudva
+* https://www.codechef.com/problems/CHEFVOTE
+*/
+
+
 #include <bits/stdc++.h>
 
 using namespace std;
