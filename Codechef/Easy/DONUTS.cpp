@@ -1,0 +1,36 @@
+/*
+* AUTHOR: Ganesh S Kudva
+* https://www.codechef.com/problems/DONUTS
+*/
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+#define MAXM 20000+5
+
+int T;
+int N, M;
+
+int a[MAXM];
+
+int main() {
+	scanf("%d", &T);
+	while (T--) {
+	    scanf("%d%d", &N, &M);
+		for (int i = 0; i < M; i++) {
+			scanf("%d", &a[i]);
+		}
+		sort(a, a+M);
+		int ni = 0, sum = 0;
+		for (int i = 0; i < M; i++) {
+			sum += (a[i] + 1);
+			if (sum >= M) {
+			   ni = i;
+			   break;
+            }
+        }
+	    printf("%d\n", M-ni-1);
+	}
+	return 0;	
+}
