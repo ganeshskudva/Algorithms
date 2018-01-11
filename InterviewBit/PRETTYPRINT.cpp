@@ -1,4 +1,4 @@
-/*https://www.interviewbit.com/problems/prettyprint/*/
+/*Problem: https://www.interviewbit.com/problems/prettyprint/*/
 
 vector<vector<int> > Solution::prettyPrint(int A) {
     int size, temp, limit, i, j;
