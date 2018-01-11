@@ -1,4 +1,4 @@
-/*Problem: https://www.interviewbit.com/problems/nextgreater/*/
+/*Problem: https://www.interviewbit.com/problems/nextgreater/ */
 
 vector<int> Solution::nextGreater(vector<int> &A) {
     stack<int>pila;
