@@ -1,6 +1,10 @@
 /*
 * AUTHOR: Ganesh S Kudva
 * https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/
+*
+* Similar as
+* 875. Koko Eating Bananas
+* 774. Minimize Max Distance to Gas Station
 */
 
 class Solution {
