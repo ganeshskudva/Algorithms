@@ -1,3 +1,4 @@
+// 1101. The Earliest Moment When Everyone Become Friends
 class Solution {
     int find(int i, vector<int>& par) {
         if (par[i] == -1) return i;
