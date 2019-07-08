@@ -46,3 +46,30 @@ public:
         return result;
     }
 };
+
+
+/*******************Without using dummy node *********************/
+#include <vector>
+#include <queue>
+using namespace std;
+class Solution {
+public:
+   vector<vector<int>> levelOrder(TreeNode* root) {
+       queue<TreeNode*> q;
+       vector<vector<int>> v;
+       if(!root)   return v;
+       q.push(root);
+       while(!q.empty()){
+           vector<int> cur;
+           int len=q.size();
+           for(int i=0;i<len;i++){
+               cur.push_back(q.front()->val);
+               if(q.front()->left)   q.push(q.front()->left);
+               if(q.front()->right)    q.push(q.front()->right);
+               q.pop();
+           }
+           v.push_back(cur);
+       }
+       return v;
+   }
+};
